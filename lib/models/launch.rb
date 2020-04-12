@@ -11,7 +11,7 @@ class Models::Launch
     raise ArgumentError, 'Invalid Pinfall value' unless gross_value.match?(/^([0-9]*|F)$/)
 
     if gross_value == 'F'
-      @value = gross_value
+      @value = 0
     elsif (0..10).include? gross_value.to_i
       @value = gross_value.to_i
     else
