@@ -1,8 +1,11 @@
 # frozen_string_literal: true
+
 class Models::PinFall
   attr_reader :launches
+  attr_accessor :last_frame
 
-  def initialize(launches)
+  def initialize(launches, last_frame = false)
+    @last_frame = last_frame
     self.launches = launches
   end
 
@@ -10,7 +13,8 @@ class Models::PinFall
     raise ArgumentError, 'No more than 3 throws per frame are allowed' if new_launches.length > 3
 
     sum = new_launches.inject(0) { |cum, l| cum + l.value }
-    raise ArgumentError, 'The total amount of fallen pins exceeds the maximum limit' if sum > 10
+    raise ArgumentError, 'The total amount of fallen pins exceeds the maximum limit' if sum > 10 && !last_frame
+    raise ArgumentError, 'The total amount of fallen pins exceeds the maximum limit' if sum > 30 && last_frame
 
     @launches = new_launches
   end
