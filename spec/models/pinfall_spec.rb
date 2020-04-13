@@ -19,7 +19,7 @@ RSpec.describe Models::PinFall do
         launches << Models::Launch.new('2')
       end
 
-      expect { Models::PinFall.new(launches) }.not_to raise_error ArgumentError
+      expect { Models::PinFall.new(launches) }.not_to raise_error
     end
 
     it 'raises an error if the total amount of fallen pins is not valid' do
@@ -31,7 +31,7 @@ RSpec.describe Models::PinFall do
     it 'continues an error if the total amount of fallen pins is valid' do
       launches = [Models::Launch.new('4'), Models::Launch.new('5')] # 9 pins in total
 
-      expect { Models::PinFall.new(launches) }.not_to raise_error ArgumentError
+      expect { Models::PinFall.new(launches) }.not_to raise_error
     end
   end
 

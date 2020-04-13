@@ -28,7 +28,7 @@ RSpec.describe Models::Player do
         pinfalls << Models::PinFall.new([Models::Launch.new('4'), Models::Launch.new('5')])
       end
 
-      expect { Models::Player.new('Jeff', pinfalls) }.not_to raise_error ArgumentError
+      expect { Models::Player.new('Jeff', pinfalls) }.not_to raise_error
     end
   end
 

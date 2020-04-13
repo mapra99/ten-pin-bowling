@@ -7,7 +7,7 @@ RSpec.describe Models::Launch do
     valid_pinfalls = %w[0 1 2 3 4 5 6 7 8 9 10 F]
 
     valid_pinfalls.each do |p|
-      expect { Models::Launch.new(p) }.not_to raise_error ArgumentError
+      expect { Models::Launch.new(p) }.not_to raise_error
     end
   end
 
