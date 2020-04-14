@@ -32,7 +32,7 @@ class Models::PinFall
   end
 
   def spare?
-    printable_launches.include? '\\'
+    printable_launches.include? '/'
   end
 
   private
@@ -43,8 +43,7 @@ class Models::PinFall
     @launches.each_with_index do |launch, index|
       sum += launch.value
       result[index] = launch.value.to_s
-      result[index] = '-' if launch.value.zero?
-      result[index] = '\\' if sum == 10
+      result[index] = '/' if sum == 10
     end
 
     result
@@ -63,9 +62,8 @@ class Models::PinFall
       sum += launch.value
       if sum < 10
         result[index] = launch.value.to_s
-        result[index] = '-' if launch.value.zero?
       else
-        result[index] = '\\'
+        result[index] = '/'
         return result
       end
     end

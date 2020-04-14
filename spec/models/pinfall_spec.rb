@@ -48,7 +48,7 @@ RSpec.describe Models::PinFall do
       launch_two = Models::Launch.new '7'
       pinfall = Models::PinFall.new([launch_one, launch_two])
 
-      expect(pinfall.printable_launches).to eq(['3', '\\'])
+      expect(pinfall.printable_launches).to eq(['3', '/'])
     end
 
     it 'returns a printable pin fall amount for a launch where neither strike nor spare was achieved' do
@@ -64,7 +64,7 @@ RSpec.describe Models::PinFall do
       launch_two = Models::Launch.new 'F'
       pinfall = Models::PinFall.new([launch_one, launch_two])
 
-      expect(pinfall.printable_launches).to eq(%w[- -])
+      expect(pinfall.printable_launches).to eq(%w[0 0])
     end
   end
 
