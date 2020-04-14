@@ -20,6 +20,37 @@ class Models::PinFall
   end
 
   def printable_launches
+    if last_frame
+      printable_last_launches
+    else
+      printable_common_launches
+    end
+  end
+
+  def strike?
+    printable_launches.include? 'X'
+  end
+
+  def spare?
+    printable_launches.include? '\\'
+  end
+
+  private
+
+  def printable_last_launches
+    result = Array.new(@launches.length, '')
+    sum = 0
+    @launches.each_with_index do |launch, index|
+      sum += launch.value
+      result[index] = launch.value.to_s
+      result[index] = '-' if launch.value.zero?
+      result[index] = '\\' if sum == 10
+    end
+
+    result
+  end
+
+  def printable_common_launches
     result = Array.new(@launches.length, '')
 
     if @launches[0].value == 10
@@ -40,13 +71,5 @@ class Models::PinFall
     end
 
     result
-  end
-
-  def strike?
-    printable_launches.include? 'X'
-  end
-
-  def spare?
-    printable_launches.include? '\\'
   end
 end
