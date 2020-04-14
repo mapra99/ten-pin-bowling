@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'byebug'
 module Actions::Render
   def self.scoreboard(players)
     player_names = players.map(&:name)
