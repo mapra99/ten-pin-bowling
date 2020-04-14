@@ -4,7 +4,7 @@ class Models::Player
   attr_accessor :name
   attr_reader :pinfalls
 
-  def initialize(name=nil, pinfalls=nil)
+  def initialize(name = nil, pinfalls = nil)
     self.name = name
     self.pinfalls = pinfalls
   end
