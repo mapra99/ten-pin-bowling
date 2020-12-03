@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../lib/models/models.rb'
+require_relative '../spec_helper'
 
 RSpec.describe Models::Player do
   context 'frames validations' do

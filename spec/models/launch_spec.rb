@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../lib/models/models.rb'
+require_relative '../spec_helper'
 
 RSpec.describe Models::Launch do
   it 'raises no error for a valid input' do
